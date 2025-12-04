@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Metas - 2026</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <h4>Metas - 2026</h4>
+        <h1>|</h1>
+        <img src="img/maiusculo.png" alt="logo g3">
+    </header>
+
+    <!-- Container principal -->
+    <div id="app">
+        <!-- Página única com todos os post-its -->
+        <div id="home-page" class="page active">
+            <h2 id="department-title">Painel Geral de Metas</h2>
+            <div class="filters-container">
+                <input type="text" id="filter-name" placeholder="Pesquisar por nome">
+                <select id="filter-department">
+                    <option value="">Todos os departamentos</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Suporte">Suporte</option>
+                    <option value="Desenvolvimento">Desenvolvimento</option>
+                    <option value="Comercial">Comercial</option>
+                </select>
+            </div>
+            <div class="goals-container" id="goals-container">
+                <!-- Post-its serão injetados aqui pelo JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Botão flutuante de adição de meta -->
+    <button class="fab" id="add-goal-btn">+</button>
+
+    <!-- Modal para adicionar meta -->
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Adicionar Nova Meta</h3>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <form id="goal-form">
+                <div class="form-group">
+                    <label for="goal-name">Nome:</label>
+                    <input type="text" id="goal-name" placeholder="Digite o seu nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="goal-department">Departamento:</label>
+                    <select id="goal-department" required>
+                        <option value="">Selecione um departamento</option>
+                        <option value="Marketing">Marketing</option>
+                        <option value="Suporte">Suporte</option>
+                        <option value="Desenvolvimento">Desenvolvimento</option>
+                        <option value="Comercial">Comercial</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="goal-text">Meta (máx. 100 letras):</label>
+                    <textarea style="resize: vertical" id="goal-text" placeholder="Descreva sua meta..." maxlength="100" required></textarea>
+                    <div class="word-count">
+                        <span id="word-count-display">0</span> / 100 palavras
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit">Adicionar Meta</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Supabase Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
